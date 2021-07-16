@@ -1,0 +1,31 @@
+﻿<Page x:Class="PrintingHouses.AddPrintingHouse"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PrintingHouses"
+      mc:Ignorable="d" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      d:DesignHeight="250" d:DesignWidth="300"
+      Background="White"
+      Title="AddPrintingHouse" Name="addPrintingHouse">
+
+    <StackPanel>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <StackPanel>
+                    <Button BorderBrush="Transparent" Background="#E56C44" Content="+" Padding="0" FontFamily="{StaticResource HegvalDisplayRegular}" Click="AddItem" VerticalAlignment="Center" Foreground="White" FontSize="20" Margin="15, 15, 230, 5" />
+                </StackPanel>
+            </Grid>
+            <StackPanel VerticalAlignment="Center" Margin="0" Grid.Row="1">
+                <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="{StaticResource HegvalDisplayRegular}" Margin="15" materialDesign:HintAssist.Hint="Название типографии" Text="{Binding ElementName=addPrintingHouse, Path=PrintingHouseName}" />
+                <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="{StaticResource HegvalDisplayRegular}" Margin="15" materialDesign:HintAssist.Hint="Адрес" Text="{Binding ElementName=addPrintingHouse, Path=Address}" />
+                <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="{StaticResource HegvalDisplayRegular}" Margin="15" materialDesign:HintAssist.Hint="Максимальный тираж" Text="{Binding ElementName=addPrintingHouse, Path=MaxEdition}" />
+            </StackPanel>
+        </Grid>
+    </StackPanel>
+</Page>

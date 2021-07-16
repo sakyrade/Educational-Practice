@@ -1,0 +1,49 @@
+﻿<Page x:Class="PrintingHousesApp.add_items_views.AddDeliveriesPostOffice"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PrintingHousesApp.add_items_views"
+      mc:Ignorable="d"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      d:DesignHeight="250" d:DesignWidth="300"
+      Background="White"
+      Title="AddDeliveriesPostOffice" Name="addDeliveriesPostOffice">
+
+    <StackPanel>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <StackPanel>
+                    <Button Background="#E56C44" BorderBrush="Transparent" Content="+" Padding="0" FontFamily="{StaticResource HegvalDisplayRegular}" VerticalAlignment="Center" Click="AddItem" Foreground="White" FontSize="20" Margin="15, 15, 230, 5" />
+                </StackPanel>
+            </Grid>
+            <StackPanel VerticalAlignment="Center" Margin="0" Grid.Row="1">
+                <ComboBox Margin="15" materialDesign:HintAssist.Hint="Выберите напечатанный тираж газет" ItemsSource="{Binding}" Name="cmdPrintingNewspapers">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="{Binding Path=PrintingHouseName, StringFormat='Типография: {0}'}" FontFamily="{StaticResource HegvalDisplayRegular}" />
+                                <TextBlock Text="{Binding Path=NewspaperName, StringFormat='Название газеты: {0}'}" FontFamily="{StaticResource HegvalDisplayRegular}" />
+                                <TextBlock Text="{Binding Path=Edition, StringFormat='Тираж: {0}'}" FontFamily="{StaticResource HegvalDisplayRegular}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <ComboBox Margin="15" materialDesign:HintAssist.Hint="Выберите почтовое отделение" ItemsSource="{Binding}" Name="cmdPostOffices">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="{Binding Path=PostOfficeName, StringFormat='Название почтового отделения: {0}'}" FontFamily="{StaticResource HegvalDisplayRegular}" />
+                                <TextBlock Text="{Binding Path=PostOfficeAddress, StringFormat='Адрес: {0}'}" FontFamily="{StaticResource HegvalDisplayRegular}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </StackPanel>
+        </Grid>
+    </StackPanel>
+</Page>

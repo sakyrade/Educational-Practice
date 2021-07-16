@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище CerberusDBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="DeliveriesPostOffices">
+    <Key>
+      <PropertyRef Name="_id" />
+    </Key>
+    <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="_idPrintingNewspapers" Type="int" Nullable="false" />
+    <Property Name="_idPostOffices" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Newspapers">
+    <Key>
+      <PropertyRef Name="NewspaperName" />
+    </Key>
+    <Property Name="NewspaperName" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="NewspaperIndex" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="EditorSecondName" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="EditorFirstName" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="EditorLastName" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="SubPrice" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PostOffices">
+    <Key>
+      <PropertyRef Name="_id" />
+    </Key>
+    <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PostOfficeName" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="PostOfficeAddress" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PrintingHouses">
+    <Key>
+      <PropertyRef Name="PrintingHouseName" />
+    </Key>
+    <Property Name="PrintingHouseName" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="PrintingHouseAddress" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MaxEdition" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PrintingNewspapers">
+    <Key>
+      <PropertyRef Name="_id" />
+    </Key>
+    <Property Name="_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PrintingHouseName" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="NewspaperName" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="Edition" Type="float" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Deliverie___idPo__20C1E124">
+    <End Role="PostOffices" Type="Self.PostOffices" Multiplicity="1" />
+    <End Role="DeliveriesPostOffices" Type="Self.DeliveriesPostOffices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PostOffices">
+        <PropertyRef Name="_id" />
+      </Principal>
+      <Dependent Role="DeliveriesPostOffices">
+        <PropertyRef Name="_idPostOffices" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Deliverie___idPr__1FCDBCEB">
+    <End Role="PrintingNewspapers" Type="Self.PrintingNewspapers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DeliveriesPostOffices" Type="Self.DeliveriesPostOffices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PrintingNewspapers">
+        <PropertyRef Name="_id" />
+      </Principal>
+      <Dependent Role="DeliveriesPostOffices">
+        <PropertyRef Name="_idPrintingNewspapers" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PrintingN__Newsp__1920BF5C">
+    <End Role="Newspapers" Type="Self.Newspapers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PrintingNewspapers" Type="Self.PrintingNewspapers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Newspapers">
+        <PropertyRef Name="NewspaperName" />
+      </Principal>
+      <Dependent Role="PrintingNewspapers">
+        <PropertyRef Name="NewspaperName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PrintingN__Print__182C9B23">
+    <End Role="PrintingHouses" Type="Self.PrintingHouses" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PrintingNewspapers" Type="Self.PrintingNewspapers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PrintingHouses">
+        <PropertyRef Name="PrintingHouseName" />
+      </Principal>
+      <Dependent Role="PrintingNewspapers">
+        <PropertyRef Name="PrintingHouseName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище CerberusDBModelContainer">
+    <EntitySet Name="DeliveriesPostOffices" EntityType="Self.DeliveriesPostOffices" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Newspapers" EntityType="Self.Newspapers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PostOffices" EntityType="Self.PostOffices" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PrintingHouses" EntityType="Self.PrintingHouses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PrintingNewspapers" EntityType="Self.PrintingNewspapers" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Deliverie___idPo__20C1E124" Association="Self.FK__Deliverie___idPo__20C1E124">
+      <End Role="PostOffices" EntitySet="PostOffices" />
+      <End Role="DeliveriesPostOffices" EntitySet="DeliveriesPostOffices" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Deliverie___idPr__1FCDBCEB" Association="Self.FK__Deliverie___idPr__1FCDBCEB">
+      <End Role="PrintingNewspapers" EntitySet="PrintingNewspapers" />
+      <End Role="DeliveriesPostOffices" EntitySet="DeliveriesPostOffices" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PrintingN__Newsp__1920BF5C" Association="Self.FK__PrintingN__Newsp__1920BF5C">
+      <End Role="Newspapers" EntitySet="Newspapers" />
+      <End Role="PrintingNewspapers" EntitySet="PrintingNewspapers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PrintingN__Print__182C9B23" Association="Self.FK__PrintingN__Print__182C9B23">
+      <End Role="PrintingHouses" EntitySet="PrintingHouses" />
+      <End Role="PrintingNewspapers" EntitySet="PrintingNewspapers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

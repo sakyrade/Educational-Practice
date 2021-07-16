@@ -1,0 +1,31 @@
+﻿<Page x:Class="PrintingHousesApp.add_items_views.AddPostOffice"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PrintingHousesApp.add_items_views"
+      mc:Ignorable="d" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      d:DesignHeight="250" d:DesignWidth="300"
+      Background="White"
+      Title="AddPostOffice" Name="addPostOffice">
+
+    <StackPanel>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <StackPanel>
+                    <Button Background="#E56C44" BorderBrush="Transparent" Content="+" Padding="0" FontFamily="{StaticResource HegvalDisplayRegular}" VerticalAlignment="Center" Click="AddItem" Foreground="White" FontSize="20" Margin="15, 15, 230, 5" />
+                </StackPanel>
+            </Grid>
+            <StackPanel VerticalAlignment="Center" Margin="0" Grid.Row="1">
+                <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="{StaticResource HegvalDisplayRegular}" Margin="15" materialDesign:HintAssist.Hint="Название почтового отделения" Text="{Binding ElementName=addPostOffice, Path=PostOfficeName}" />
+                <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="{StaticResource HegvalDisplayRegular}" Margin="15" materialDesign:HintAssist.Hint="Номер телефона" Text="{Binding ElementName=addPostOffice, Path=PhoneNumber}" />
+                <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="{StaticResource HegvalDisplayRegular}" Margin="15" materialDesign:HintAssist.Hint="Адрес" Text="{Binding ElementName=addPostOffice, Path=PostOfficeAddress}" />
+            </StackPanel>
+        </Grid>
+    </StackPanel>
+</Page>

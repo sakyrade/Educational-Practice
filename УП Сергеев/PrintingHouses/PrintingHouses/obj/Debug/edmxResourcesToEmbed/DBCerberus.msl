@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище CerberusDBModelContainer" CdmEntityContainer="CerberusDBEntities">
+    <EntitySetMapping Name="DeliveriesPostOffices">
+      <EntityTypeMapping TypeName="CerberusDBModel.DeliveriesPostOffices">
+        <MappingFragment StoreEntitySet="DeliveriesPostOffices">
+          <ScalarProperty Name="C_id" ColumnName="_id" />
+          <ScalarProperty Name="C_idPrintingNewspapers" ColumnName="_idPrintingNewspapers" />
+          <ScalarProperty Name="C_idPostOffices" ColumnName="_idPostOffices" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Newspapers">
+      <EntityTypeMapping TypeName="CerberusDBModel.Newspapers">
+        <MappingFragment StoreEntitySet="Newspapers">
+          <ScalarProperty Name="NewspaperName" ColumnName="NewspaperName" />
+          <ScalarProperty Name="NewspaperIndex" ColumnName="NewspaperIndex" />
+          <ScalarProperty Name="EditorSecondName" ColumnName="EditorSecondName" />
+          <ScalarProperty Name="EditorFirstName" ColumnName="EditorFirstName" />
+          <ScalarProperty Name="EditorLastName" ColumnName="EditorLastName" />
+          <ScalarProperty Name="SubPrice" ColumnName="SubPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PostOffices">
+      <EntityTypeMapping TypeName="CerberusDBModel.PostOffices">
+        <MappingFragment StoreEntitySet="PostOffices">
+          <ScalarProperty Name="C_id" ColumnName="_id" />
+          <ScalarProperty Name="PostOfficeName" ColumnName="PostOfficeName" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PostOfficeAddress" ColumnName="PostOfficeAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PrintingHouses">
+      <EntityTypeMapping TypeName="CerberusDBModel.PrintingHouses">
+        <MappingFragment StoreEntitySet="PrintingHouses">
+          <ScalarProperty Name="PrintingHouseName" ColumnName="PrintingHouseName" />
+          <ScalarProperty Name="PrintingHouseAddress" ColumnName="PrintingHouseAddress" />
+          <ScalarProperty Name="MaxEdition" ColumnName="MaxEdition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PrintingNewspapers">
+      <EntityTypeMapping TypeName="CerberusDBModel.PrintingNewspapers">
+        <MappingFragment StoreEntitySet="PrintingNewspapers">
+          <ScalarProperty Name="C_id" ColumnName="_id" />
+          <ScalarProperty Name="PrintingHouseName" ColumnName="PrintingHouseName" />
+          <ScalarProperty Name="NewspaperName" ColumnName="NewspaperName" />
+          <ScalarProperty Name="Edition" ColumnName="Edition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

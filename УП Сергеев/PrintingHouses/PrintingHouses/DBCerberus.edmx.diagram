@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a63a362ce6ad4dcc9f85a47a31ffdd00" Name="Diagram1">
+        <EntityTypeShape EntityType="CerberusDBModel.DeliveriesPostOffices" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CerberusDBModel.Newspapers" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CerberusDBModel.PostOffices" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CerberusDBModel.PrintingHouses" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CerberusDBModel.PrintingNewspapers" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="CerberusDBModel.FK__Deliverie___idPo__20C1E124" ManuallyRouted="false" />
+        <AssociationConnector Association="CerberusDBModel.FK__Deliverie___idPr__1FCDBCEB" ManuallyRouted="false" />
+        <AssociationConnector Association="CerberusDBModel.FK__PrintingN__Newsp__1920BF5C" ManuallyRouted="false" />
+        <AssociationConnector Association="CerberusDBModel.FK__PrintingN__Print__182C9B23" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

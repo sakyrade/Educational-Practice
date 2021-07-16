@@ -1,0 +1,44 @@
+﻿<Window x:Class="PrintingHousesApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PrintingHousesApp"
+        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/theme"
+        Icon="icons/newspaper.png"
+        mc:Ignorable="d" Height="500" Width="900" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" x:Name="mainWindow" Title="Цербер: Отслеживание газет">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.3*" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="10">
+            <StackPanel Orientation="Horizontal" Margin="10,0" VerticalAlignment="Center">
+                <Image Source="icons/newspaper.png" />
+                <StackPanel Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Label FontFamily="{StaticResource HegvalDisplayRegular}" Content="Цербер" FontSize="20" HorizontalContentAlignment="Center" />
+                    <Label FontFamily="{StaticResource HegvalDisplayRegular}" Content="Отслеживание газет" HorizontalContentAlignment="Center" />
+                </StackPanel>
+            </StackPanel>
+
+            <Menu Margin="10, 0, 10, 0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <MenuItem Margin="0" VerticalAlignment="Center" FontFamily="{StaticResource HegvalDisplayRegular}" Foreground="Black" Header="Газеты" Background="Transparent">
+                    <MenuItem Margin="10" VerticalAlignment="Center" Click="AboutNewspapers" FontFamily="{StaticResource HegvalDisplayRegular}" Foreground="Black" Background="Transparent" Header="О газетах" />
+                    <MenuItem Margin="10" VerticalAlignment="Center" Click="PrintingNewspapers" FontFamily="{StaticResource HegvalDisplayRegular}" Background="Transparent" Header="Газеты в печати" />
+                    <MenuItem Margin="10" VerticalAlignment="Center" Click="DeliveriesPostOffices" FontFamily="{StaticResource HegvalDisplayRegular}" Background="Transparent" Header="Газеты в пути" />
+                </MenuItem>
+                <MenuItem Margin="0" VerticalAlignment="Center" Click="PrintingHouses" FontFamily="{StaticResource HegvalDisplayRegular}" Foreground="Black" Header="Типографии" Background="Transparent" />
+                <MenuItem Margin="0" VerticalAlignment="Center" Click="PostOffices" FontFamily="{StaticResource HegvalDisplayRegular}" Foreground="Black" Background="Transparent" Header="Почтовые отделения" />
+            </Menu>
+        </StackPanel>
+        <DataGrid Visibility="Hidden" FontFamily="{StaticResource HegvalDisplayRegular}" x:Name="dataGrid" SelectionMode="Extended" SelectionUnit="FullRow" CanUserAddRows="False" CanUserDeleteRows="False" ItemsSource="{Binding ElementName=mainWindow, Path=TargetTable}" AutoGenerateColumns="False" Grid.Row="1" >
+        </DataGrid>
+        <Label x:Name="defaultLabel" Content="Выберите таблицу на панели выше" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="{StaticResource HegvalDisplayRegular}" Foreground="#666666" Grid.Row="1" />
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button BorderBrush="Transparent" Margin="10" Click="InsertItem" FontFamily="{StaticResource HegvalDisplayRegular}"  Padding="20, 0, 20, 0" Background="#E56C44" Foreground="White" Content="Добавить" />
+            <Button BorderBrush="Transparent" Margin="10" Click="UpdateItem" FontFamily="{StaticResource HegvalDisplayRegular}"  Padding="20, 0, 20, 0" Background="#E56C44" Foreground="White" Content="Обновить" />
+            <Button BorderBrush="Transparent" Margin="10" Click="DeleteItem" FontFamily="{StaticResource HegvalDisplayRegular}"  Padding="20, 0, 20, 0" Background="#E56C44" Foreground="White" Content="Удалить" />
+        </StackPanel>
+    </Grid>
+</Window>
